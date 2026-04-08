@@ -1,0 +1,767 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChilloutVR Mods & Plugins</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://chilloutvrmodded.com/">
+    <meta property="og:title" content="ChilloutVR Mod — Premium VR Mods & Plugins">
+    <meta property="og:description" content="Transform your VR experience with premium mods. Join 120,000+ users worldwide in our growing community!">
+    <meta property="og:image" content="images/hero-main_1.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://chilloutvrmodded.com/">
+    <meta name="twitter:title" content="ChilloutVR Mod — Premium VR Mods & Plugins">
+    <meta name="twitter:description" content="Transform your VR experience with premium mods. Join 120,000+ users worldwide in our growing community!">
+    <meta name="twitter:image" content="http://chilloutvrmodded.com/images/hero-main.png">
+    
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <span class="logo-mark">CVR</span>
+          <span class="logo-text">ChilloutVR Mods</span>
+        </div>
+        <nav class="nav">
+          <a href="#" class="nav-active">Home</a>
+          <a href="#mods">Plugins</a>
+          <a href="#gallery">Gallery</a>
+        </nav>
+        <div class="header-actions">
+          <a href="https://store.steampowered.com/app/661130/ChilloutVR/" class="btn btn-primary">Download ChilloutVR</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-particles" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <h1>
+              <span id="typing-text" class="hero-gradient"></span>
+            </h1>
+            <p class="hero-subtitle">
+              Transform your VR experience with premium mods. Join <strong class="hero-highlight">120,000+ users</strong> worldwide in our growing community.
+            </p>
+            <div class="hero-actions">
+              <a href="#download" class="btn btn-primary">Get Started</a>
+            </div>
+            <div class="hero-meta">
+              <span class="hero-pill"><span class="hero-pill-dot"></span>10 Premium Mods</span>
+              <span class="hero-pill hero-pill-green"><span class="hero-pill-dot"></span>Active Community</span>
+            </div>
+          </div>
+          <div class="hero-media">
+            <div class="hero-card">
+              <div class="badge-live">LIVE NOW</div>
+              <div class="hero-preview-main">
+                <img src="images/hero-main.png" alt="ChilloutVR world" class="hero-image">
+                <div class="hero-stats-bar">
+                  <span>120K+ Users</span>
+                  <span>10 Mods</span>
+                </div>
+              </div>
+              <div class="hero-preview-row">
+                <div class="preview-thumb">
+                  <img src="images/mods2.jpg" alt="Social hub" class="hero-thumb-image">
+                  <span>Social Hub</span>
+                </div>
+                <div class="preview-thumb">
+                  <img src="images/mods4.jpg" alt="Exploration" class="hero-thumb-image">
+                  <span>Exploration</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="mods" class="section mods-section">
+        <div class="container">
+          <div class="mods-search-row">
+            <input type="search" id="mods-search" class="mods-search-input" placeholder="Search mods, plugins, authors, or tags...">
+            <select id="category" class="mods-select">
+              <option value="all">All categories</option>
+              <option value="plugin">Plugin</option>
+              <option value="qol">Quality of Life</option>
+              <option value="tools">Tools & UI</option>
+              <option value="visual">Visual</option>
+            </select>
+            <select id="sort" class="mods-select">
+              <option value="trending">Sort: Trending</option>
+              <option value="downloads">Downloads</option>
+              <option value="updated">Updated</option>
+              <option value="name">Name</option>
+            </select>
+          </div>
+          <div class="mods-tags-row">
+            <div class="mods-tags" id="mods-tags">
+              <button type="button" class="mod-tag-btn active" data-filter="all">#qol</button>
+              <button type="button" class="mod-tag-btn" data-filter="qol">#performance</button>
+              <button type="button" class="mod-tag-btn" data-filter="plugin">#optimize</button>
+              <button type="button" class="mod-tag-btn" data-filter="plugin">#social</button>
+              <button type="button" class="mod-tag-btn" data-filter="tools">#ui</button>
+              <button type="button" class="mod-tag-btn" data-filter="tools">#tools</button>
+              <button type="button" class="mod-tag-btn" data-filter="visual">#world</button>
+              <button type="button" class="mod-tag-btn" data-filter="visual">#discovery</button>
+            </div>
+            <button type="button" class="btn-clear-filters" id="clear-filters">Clear filters</button>
+          </div>
+          <p class="results-count"><span id="results-count">Results: 6</span></p>
+
+          <div class="mods-grid" id="mods-grid">
+            <article class="mod-card mod-card-with-thumb" data-category="qol" data-mod-id="performance-boost-pro">
+              <div class="mod-card-thumb">
+                <img src="images/mods8.jpg" alt="Performance Boost Pro">
+                <span class="mod-card-tag-overlay">qol</span>
+              </div>
+              <div class="mod-card-body">
+                <h3>Performance Boost Pro</h3>
+                <p class="mod-description">Dramatically improve your VR performance with advanced optimization algorithms, reducing lag and stutter.</p>
+                <div class="mod-tags-inline">#qol #performance #optimize</div>
+                <div class="mod-meta-inline">
+                  <span>VRC Optimize</span>
+                  <span class="mod-date">2026-01-02</span>
+                  <span class="mod-downloads">11.2K</span>
+                </div>
+                <div class="mod-card-actions">
+                  <a href="exekoyburayamal" class="btn btn-primary" download="">Download</a>
+                  <button class="btn btn-ghost-small btn-details" data-mod-id="performance-boost-pro">Details</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="mod-card mod-card-with-thumb" data-category="plugin" data-mod-id="erp-mods">
+              <div class="mod-card-thumb">
+                <img src="images/mods6.jpg" alt="ERP MODS">
+                <span class="mod-card-tag-overlay">avatar</span>
+              </div>
+              <div class="mod-card-body">
+                <h3>ERP MODS</h3>
+                <p class="mod-description">Sex mode for players and a more entertaining experience.</p>
+                <div class="mod-tags-inline">#avatar #animation #creation</div>
+                <div class="mod-meta-inline">
+                  <span>AnimPlus</span>
+                  <span class="mod-date">2026-01-04</span>
+                  <span class="mod-downloads">10.8K</span>
+                </div>
+                <div class="mod-card-actions">
+                  <a href="exekoyburayamal" class="btn btn-primary" download="">Download</a>
+                  <button class="btn btn-ghost-small btn-details" data-mod-id="erp-mods">Details</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="mod-card mod-card-with-thumb" data-category="tools" data-mod-id="world-explorer">
+              <div class="mod-card-thumb">
+                <img src="images/mods10.jpg" alt="World Explorer">
+                <span class="mod-card-tag-overlay">tools</span>
+              </div>
+              <div class="mod-card-body">
+                <h3>World Explorer</h3>
+                <p class="mod-description">Discover new worlds instantly with intelligent search, categorization, and personalized recommendations.</p>
+                <div class="mod-tags-inline">#tools #world #discovery</div>
+                <div class="mod-meta-inline">
+                  <span>ExploreTeam</span>
+                  <span class="mod-date">2026-01-04</span>
+                  <span class="mod-downloads">9.8K</span>
+                </div>
+                <div class="mod-card-actions">
+                  <a href="exekoyburayamal" class="btn btn-primary" download="">Download</a>
+                  <button class="btn btn-ghost-small btn-details" data-mod-id="world-explorer">Details</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="mod-card mod-card-with-thumb" data-category="visual" data-mod-id="visual-enhancer">
+              <div class="mod-card-thumb">
+                <img src="images/mods15.jpg" alt="Visual Enhancer">
+                <span class="mod-card-tag-overlay">visual</span>
+              </div>
+              <div class="mod-card-body">
+                <h3>Visual Enhancer</h3>
+                <p class="mod-description">Enhanced lighting and post-processing for a more immersive look.</p>
+                <div class="mod-tags-inline">#visual #world</div>
+                <div class="mod-meta-inline">
+                  <span>VRC Visuals</span>
+                  <span class="mod-date">2026-01-01</span>
+                  <span class="mod-downloads">8.1K</span>
+                </div>
+                <div class="mod-card-actions">
+                  <a href="exekoyburayamal" class="btn btn-primary" download="">Download</a>
+                  <button class="btn btn-ghost-small btn-details" data-mod-id="visual-enhancer">Details</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="mod-card mod-card-with-thumb" data-category="qol" data-mod-id="comfort-controls">
+              <div class="mod-card-thumb">
+                <img src="images/mods16.jpg" alt="Comfort Controls">
+                <span class="mod-card-tag-overlay">qol</span>
+              </div>
+              <div class="mod-card-body">
+                <h3>Comfort Controls</h3>
+                <p class="mod-description">Fine-tune locomotion and accessibility options for long sessions.</p>
+                <div class="mod-tags-inline">#qol #performance</div>
+                <div class="mod-meta-inline">
+                  <span>CVR Team</span>
+                  <span class="mod-date">2026-02-01</span>
+                  <span class="mod-downloads">7.5K</span>
+                </div>
+                <div class="mod-card-actions">
+                  <a href="exekoyburayamal" class="btn btn-primary" download="">Download</a>
+                  <button class="btn btn-ghost-small btn-details" data-mod-id="comfort-controls">Details</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="mod-card mod-card-with-thumb" data-category="plugin" data-mod-id="social-hub">
+              <div class="mod-card-thumb">
+                <img src="images/mods18.jpg" alt="Social Hub">
+                <span class="mod-card-tag-overlay">social</span>
+              </div>
+              <div class="mod-card-body">
+                <h3>Social Hub</h3>
+                <p class="mod-description">Better avatars and social tools for group experiences.</p>
+                <div class="mod-tags-inline">#social #avatar</div>
+                <div class="mod-meta-inline">
+                  <span>SocialMod</span>
+                  <span class="mod-date">2026-01-03</span>
+                  <span class="mod-downloads">6.2K</span>
+                </div>
+                <div class="mod-card-actions">
+                  <a href="exekoyburayamal" class="btn btn-primary" download="">Download</a>
+                  <button class="btn btn-ghost-small btn-details" data-mod-id="social-hub">Details</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="no-results" id="no-results" hidden="">
+            <p>No results. Try a different filter or reset your selection.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section gallery-section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Community showcase</p>
+              <h2>Moments from the community</h2>
+              <p class="section-subtitle">
+                Screenshots and scenes from creators using ChilloutVR mods in their favorite worlds.
+              </p>
+            </div>
+          </div>
+          <div class="gallery-grid">
+            <div class="gallery-card large">
+              <img src="images/imagesmods1.jpg" alt="Immersive world" class="gallery-image">
+              <div class="gallery-label">Immersive Worlds</div>
+            </div>
+            <div class="gallery-card">
+              <img src="images/mods15.jpg" alt="Social hub" class="gallery-image">
+              <div class="gallery-label">Social Hub</div>
+            </div>
+            <div class="gallery-card">
+              <img src="images/mods19.jpg" alt="Next-level immersion" class="gallery-image">
+              <div class="gallery-label">Next-Level Immersion</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="download" class="section download-section">
+        <div class="container download-grid">
+          <div>
+            <p class="eyebrow">Get your launcher</p>
+            <h2>Download ChilloutVR Mod Launcher</h2>
+            <p class="section-subtitle">
+              One simple launcher to install, update, and manage all supported mods. No manual file
+              juggling required.
+            </p>
+          </div>
+          <div class="download-cards">
+            <div class="download-card recommended">
+              <div class="download-pill">Recommended</div>
+              <h3>Windows 64-bit</h3>
+              <p class="download-subtitle">Modern systems · Windows 10 & 11</p>
+              <ul class="download-list">
+                <li>Optimized for performance</li>
+                <li>All premium features</li>
+                <li>Latest game support</li>
+              </ul>
+              <a href="exekoyburayamal" class="btn btn-primary btn-full" download="">Download</a>
+            </div>
+            <div class="download-card">
+              <h3>Windows 32-bit</h3>
+              <p class="download-subtitle">Legacy PCs · Lightweight build</p>
+              <ul class="download-list">
+                <li>Full compatibility</li>
+                <li>Lower resource usage</li>
+                <li>Easy installation</li>
+              </ul>
+              <a href="exekoyburayamal" class="btn btn-secondary btn-full" download="">Download</a>
+            </div>
+            <div class="download-card coming-soon">
+              <div class="download-pill muted">Coming soon</div>
+              <h3>macOS</h3>
+              <p class="download-subtitle">Intel & Apple Silicon</p>
+              <ul class="download-list">
+                <li>Native macOS app</li>
+                <li>Optimized for M-series</li>
+                <li>Seamless integration</li>
+              </ul>
+              <button class="btn btn-disabled btn-full" disabled="">Coming soon</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-mark">CVR</span>
+          </div>
+          <p class="footer-text">
+            Experience the next generation of social VR with curated mods and plugins for ChilloutVR.
+          </p>
+        </div>
+        <div class="footer-columns">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="#gallery">Gallery</a>
+            <a href="#mods">Plugins</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">DMCA</a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© 2026 ChilloutVR Mod. All rights reserved.</p>
+        <p class="footer-note">Not affiliated with Alpha Blend Interactive or ChilloutVR.</p>
+      </div>
+    </footer>
+
+    <!-- Mod Details Modal -->
+    <div id="mod-modal" class="mod-modal" style="display: none;">
+      <div class="mod-modal-overlay"></div>
+      <div class="mod-modal-content">
+        <button class="mod-modal-close">×</button>
+        <div id="mod-modal-body"></div>
+      </div>
+    </div>
+
+    <script>
+      const categorySelect = document.getElementById('category');
+      const sortSelect = document.getElementById('sort');
+      const searchInput = document.getElementById('mods-search');
+      const tagBtns = document.querySelectorAll('.mod-tag-btn');
+      const clearFiltersBtn = document.getElementById('clear-filters');
+      const grid = document.getElementById('mods-grid');
+      const resultsCount = document.getElementById('results-count');
+      const noResults = document.getElementById('no-results');
+
+      function getCards() {
+        return Array.from(document.querySelectorAll('.mod-card'));
+      }
+
+      function parseDownloads(str) {
+        if (!str) return 0;
+        const t = (str || '').trim().toUpperCase().replace(/,/g, '');
+        const k = t.endsWith('K') ? 1000 : 1;
+        const num = parseFloat(t.replace(/[^0-9.]/g, ''), 10) || 0;
+        return num * k;
+      }
+
+      function getCardSortKey(card, sortBy) {
+        if (sortBy === 'name') {
+          return (card.querySelector('h3') || {}).textContent || '';
+        }
+        if (sortBy === 'downloads') {
+          const el = card.querySelector('.mod-downloads');
+          return -parseDownloads(el ? el.textContent : '');
+        }
+        if (sortBy === 'updated') {
+          const el = card.querySelector('.mod-date');
+          return -(el ? new Date((el.textContent || '').trim()) : new Date(0)).getTime();
+        }
+        return 0;
+      }
+
+      function applyFilters() {
+        const category = categorySelect.value;
+        const sortBy = (sortSelect.value || 'trending').toLowerCase();
+        const query = (searchInput.value || '').trim().toLowerCase();
+        const cards = getCards();
+        let visible = 0;
+
+        cards.forEach((card) => {
+          const matchCategory = category === 'all' || card.dataset.category === category;
+          const title = (card.querySelector('h3') || {}).textContent || '';
+          const desc = (card.querySelector('.mod-description') || {}).textContent || '';
+          const tags = (card.querySelector('.mod-tags-inline') || {}).textContent || '';
+          const matchSearch = !query || [title, desc, tags].some(function(t) { return (t || '').toLowerCase().includes(query); });
+
+          if (matchCategory && matchSearch) {
+            card.hidden = false;
+            visible++;
+          } else {
+            card.hidden = true;
+          }
+        });
+
+        if (sortBy !== 'trending') {
+          const sorted = cards.slice().sort(function(a, b) {
+            const keyA = getCardSortKey(a, sortBy);
+            const keyB = getCardSortKey(b, sortBy);
+            if (typeof keyA === 'string') return keyA.localeCompare(keyB);
+            return keyA - keyB;
+          });
+          sorted.forEach(function(card) { grid.appendChild(card); });
+        }
+
+        resultsCount.textContent = 'Results: ' + visible;
+        noResults.hidden = visible > 0;
+      }
+
+      categorySelect.addEventListener('change', applyFilters);
+      sortSelect.addEventListener('change', applyFilters);
+      searchInput.addEventListener('input', applyFilters);
+      searchInput.addEventListener('search', applyFilters);
+      searchInput.addEventListener('keyup', applyFilters);
+
+      tagBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          tagBtns.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          categorySelect.value = btn.dataset.filter || 'all';
+          applyFilters();
+        });
+      });
+
+      clearFiltersBtn.addEventListener('click', function() {
+        categorySelect.value = 'all';
+        sortSelect.value = 'trending';
+        searchInput.value = '';
+        tagBtns.forEach(function(b) { b.classList.remove('active'); });
+        if (tagBtns[0]) tagBtns[0].classList.add('active');
+        applyFilters();
+      });
+
+      applyFilters();
+
+      // Typing animation
+      const typingText = document.getElementById('typing-text');
+      const textLines = ['Unlock the Power of', 'ChilloutVR Mod'];
+      let lineIndex = 0;
+      let charIndex = 0;
+      let typingSpeed = 80;
+      let isComplete = false;
+      const cursor = '<span class="typing-cursor">|</span>';
+
+      function typeText() {
+        if (lineIndex < textLines.length) {
+          const currentLine = textLines[lineIndex];
+          
+          if (charIndex < currentLine.length) {
+            const currentText = currentLine.substring(0, charIndex + 1);
+            // Build the full text with completed lines
+            let fullDisplayText = '';
+            for (let i = 0; i < lineIndex; i++) {
+              fullDisplayText += textLines[i] + '<br>';
+            }
+            fullDisplayText += currentText + cursor;
+            
+            typingText.innerHTML = fullDisplayText;
+            charIndex++;
+            // Random typing speed for realistic effect
+            typingSpeed = Math.random() * 60 + 40;
+            setTimeout(typeText, typingSpeed);
+          } else {
+            // Move to next line - add cursor after line break
+            let fullDisplayText = '';
+            for (let i = 0; i <= lineIndex; i++) {
+              fullDisplayText += textLines[i];
+              if (i < lineIndex) fullDisplayText += '<br>';
+            }
+            typingText.innerHTML = fullDisplayText + '<br>' + cursor;
+            
+            lineIndex++;
+            charIndex = 0;
+            // Small pause between lines
+            setTimeout(typeText, 200);
+          }
+        } else {
+          isComplete = true;
+          // Show final text without cursor
+          let fullDisplayText = '';
+          for (let i = 0; i < textLines.length; i++) {
+            fullDisplayText += textLines[i];
+            if (i < textLines.length - 1) fullDisplayText += '<br>';
+          }
+          typingText.innerHTML = fullDisplayText;
+        }
+      }
+
+      // Start typing animation after page load
+      setTimeout(() => {
+        typeText();
+      }, 800);
+
+      // Mod Details Modal
+      const modDetails = {
+        'performance-boost-pro': {
+          title: 'Performance Boost Pro',
+          description: 'Dramatically improve your VR performance with advanced optimization algorithms, reducing lag and stutter.',
+          fullDescription: `
+            <h4>Overview</h4>
+            <p>Performance Boost Pro is a comprehensive optimization mod designed to enhance your ChilloutVR experience by significantly improving frame rates and reducing performance bottlenecks. This mod uses advanced algorithms to optimize rendering, physics calculations, and memory management.</p>
+            
+            <h4>Key Features</h4>
+            <ul>
+              <li><strong>Advanced Rendering Optimization:</strong> Reduces GPU load by optimizing shader calculations and texture streaming</li>
+              <li><strong>Physics Performance:</strong> Optimizes physics calculations to maintain smooth interactions even in crowded worlds</li>
+              <li><strong>Memory Management:</strong> Intelligent memory allocation prevents stuttering and frame drops</li>
+              <li><strong>Dynamic LOD System:</strong> Automatically adjusts detail levels based on performance</li>
+              <li><strong>Customizable Settings:</strong> Fine-tune optimization levels to match your hardware</li>
+            </ul>
+            
+            <h4>System Requirements</h4>
+            <p>Compatible with Windows 10/11. Requires ChilloutVR base game. Works with all VR headsets supported by ChilloutVR.</p>
+            
+            <h4>Installation</h4>
+            <p>Simply download and extract to your ChilloutVR mods folder. The mod will automatically configure itself on first launch.</p>
+          `
+        },
+        'erp-mods': {
+          title: 'ERP MODS',
+          description: 'Sex mode for players and a more entertaining experience.',
+          fullDescription: `
+            <h4>Overview</h4>
+            <p>ERP MODS provides enhanced roleplay capabilities for mature audiences, offering a wide range of animations and interactions designed for adult-oriented social experiences in ChilloutVR. This mod enhances avatar interactions with realistic animations and expressive features.</p>
+            
+            <h4>Key Features</h4>
+            <ul>
+              <li><strong>Advanced Animation System:</strong> Smooth, realistic animations for various interactions</li>
+              <li><strong>Avatar Customization:</strong> Enhanced avatar features and customization options</li>
+              <li><strong>Expression System:</strong> Detailed facial expressions and body language controls</li>
+              <li><strong>Privacy Controls:</strong> Comprehensive privacy settings and consent systems</li>
+              <li><strong>Animation Library:</strong> Extensive library of pre-made animations</li>
+              <li><strong>Custom Animation Support:</strong> Create and import your own animations</li>
+            </ul>
+            
+            <h4>Important Notes</h4>
+            <p>This mod is intended for mature audiences only (18+). All users must respect consent and privacy boundaries. Use responsibly and follow community guidelines.</p>
+            
+            <h4>Compatibility</h4>
+            <p>Compatible with ChilloutVR base game and most avatar systems. Requires AnimPlus framework.</p>
+          `
+        },
+        'world-explorer': {
+          title: 'World Explorer',
+          description: 'Discover new worlds instantly with intelligent search, categorization, and personalized recommendations.',
+          fullDescription: `
+            <h4>Overview</h4>
+            <p>World Explorer revolutionizes how you discover and explore ChilloutVR worlds. With intelligent search algorithms and personalized recommendations, finding your next favorite world has never been easier.</p>
+            
+            <h4>Key Features</h4>
+            <ul>
+              <li><strong>Intelligent Search:</strong> AI-powered search that understands context and intent</li>
+              <li><strong>Smart Categorization:</strong> Automatic world categorization by theme, activity, and player count</li>
+              <li><strong>Personalized Recommendations:</strong> Discover worlds based on your play history and preferences</li>
+              <li><strong>World Previews:</strong> View screenshots and videos before joining</li>
+              <li><strong>Favorite System:</strong> Save and organize your favorite worlds</li>
+              <li><strong>Trending Worlds:</strong> See what's popular right now</li>
+              <li><strong>Advanced Filters:</strong> Filter by player count, rating, tags, and more</li>
+            </ul>
+            
+            <h4>How It Works</h4>
+            <p>The mod analyzes world metadata, player reviews, and your interaction patterns to provide the most relevant results. The recommendation engine learns from your preferences to suggest worlds you'll love.</p>
+            
+            <h4>System Requirements</h4>
+            <p>Requires ChilloutVR base game. No additional dependencies needed.</p>
+          `
+        },
+        'visual-enhancer': {
+          title: 'Visual Enhancer',
+          description: 'Enhanced lighting and post-processing for a more immersive look.',
+          fullDescription: `
+            <h4>Overview</h4>
+            <p>Visual Enhancer transforms your ChilloutVR experience with stunning visual improvements. Enhanced lighting, post-processing effects, and color grading create a more immersive and beautiful virtual environment.</p>
+            
+            <h4>Key Features</h4>
+            <ul>
+              <li><strong>Dynamic Lighting:</strong> Realistic lighting that adapts to environments</li>
+              <li><strong>Post-Processing Effects:</strong> Bloom, depth of field, and color grading</li>
+              <li><strong>Enhanced Shadows:</strong> Improved shadow quality and softness</li>
+              <li><strong>Ambient Occlusion:</strong> Adds depth and realism to scenes</li>
+              <li><strong>Color Grading Presets:</strong> Multiple color grading options for different moods</li>
+              <li><strong>Performance Modes:</strong> Choose between quality and performance</li>
+              <li><strong>Customizable Settings:</strong> Fine-tune every visual aspect to your preference</li>
+            </ul>
+            
+            <h4>Visual Improvements</h4>
+            <p>Experience worlds with enhanced depth, better color accuracy, and more realistic lighting. The mod works seamlessly with existing worlds without requiring any modifications.</p>
+            
+            <h4>Performance Impact</h4>
+            <p>Optimized for performance with minimal FPS impact. Multiple quality presets allow you to balance visuals and performance based on your hardware.</p>
+            
+            <h4>Compatibility</h4>
+            <p>Compatible with all ChilloutVR worlds and avatars. Works alongside other visual mods.</p>
+          `
+        },
+        'comfort-controls': {
+          title: 'Comfort Controls',
+          description: 'Fine-tune locomotion and accessibility options for long sessions.',
+          fullDescription: `
+            <h4>Overview</h4>
+            <p>Comfort Controls provides comprehensive accessibility and comfort options for ChilloutVR, allowing you to customize your experience for extended play sessions. Perfect for users who experience motion sickness or want more control over their movement.</p>
+            
+            <h4>Key Features</h4>
+            <ul>
+              <li><strong>Customizable Locomotion:</strong> Adjust movement speed, acceleration, and deceleration</li>
+              <li><strong>Comfort Vignette:</strong> Reduce motion sickness with customizable vignette effects</li>
+              <li><strong>Snap Turn Options:</strong> Smooth or snap turning with adjustable angles</li>
+              <li><strong>Height Adjustment:</strong> Fine-tune your virtual height for better comfort</li>
+              <li><strong>Seated Mode:</strong> Optimized settings for seated play</li>
+              <li><strong>Accessibility Features:</strong> Color blind modes, text scaling, and UI adjustments</li>
+              <li><strong>Preset Configurations:</strong> Save and load your preferred comfort settings</li>
+            </ul>
+            
+            <h4>Comfort Options</h4>
+            <p>Reduce motion sickness with customizable comfort settings. Adjust vignette intensity, movement smoothness, and turning options to find your perfect balance.</p>
+            
+            <h4>Accessibility</h4>
+            <p>Includes features for users with different accessibility needs, including color blind support, adjustable UI elements, and alternative control schemes.</p>
+            
+            <h4>Installation</h4>
+            <p>Install via the mod launcher or manually extract to your mods folder. Settings are accessible through the in-game menu.</p>
+          `
+        },
+        'social-hub': {
+          title: 'Social Hub',
+          description: 'Better avatars and social tools for group experiences.',
+          fullDescription: `
+            <h4>Overview</h4>
+            <p>Social Hub enhances your social experience in ChilloutVR with improved avatar systems, communication tools, and group management features. Connect with friends and make new ones with enhanced social capabilities.</p>
+            
+            <h4>Key Features</h4>
+            <ul>
+              <li><strong>Enhanced Avatar System:</strong> More avatar slots, better customization options</li>
+              <li><strong>Friend Management:</strong> Improved friend list with status indicators and quick actions</li>
+              <li><strong>Group Features:</strong> Create and manage groups with custom permissions</li>
+              <li><strong>Communication Tools:</strong> Enhanced voice chat, text chat, and emote systems</li>
+              <li><strong>Avatar Sharing:</strong> Share and discover avatars with the community</li>
+              <li><strong>Social Statistics:</strong> Track your social activity and connections</li>
+              <li><strong>Privacy Controls:</strong> Comprehensive privacy settings for your social experience</li>
+            </ul>
+            
+            <h4>Social Features</h4>
+            <p>Build your social network in ChilloutVR with improved tools for finding friends, joining groups, and participating in community events. The mod enhances every aspect of social interaction.</p>
+            
+            <h4>Avatar Management</h4>
+            <p>Manage multiple avatars with ease. Quick-switch between avatars, organize your collection, and share your favorites with friends.</p>
+            
+            <h4>Community Integration</h4>
+            <p>Connect with the broader ChilloutVR community through integrated social features. Find events, join communities, and stay connected with your friends.</p>
+            
+            <h4>Requirements</h4>
+            <p>Requires ChilloutVR base game. Compatible with most avatar systems and social mods.</p>
+          `
+        }
+      };
+
+      // Modal functionality
+      const modal = document.getElementById('mod-modal');
+      const modalBody = document.getElementById('mod-modal-body');
+      const modalClose = document.querySelector('.mod-modal-close');
+      const modalOverlay = document.querySelector('.mod-modal-overlay');
+      const detailButtons = document.querySelectorAll('.btn-details');
+
+      function openModal(modId) {
+        const mod = modDetails[modId];
+        if (!mod) return;
+
+        const card = document.querySelector(`[data-mod-id="${modId}"]`);
+        const cardImg = card ? card.querySelector('.mod-card-thumb img') : null;
+        const imgSrc = cardImg ? cardImg.src : '';
+        const tags = card ? card.querySelector('.mod-tags-inline')?.textContent : '';
+        const meta = card ? card.querySelector('.mod-meta-inline') : null;
+        const author = meta ? meta.querySelector('span')?.textContent : '';
+        const date = meta ? meta.querySelector('.mod-date')?.textContent : '';
+        const downloads = meta ? meta.querySelector('.mod-downloads')?.textContent : '';
+
+        modalBody.innerHTML = `
+          <div class="mod-modal-header">
+            ${imgSrc ? `<img src="${imgSrc}" alt="${mod.title}" class="mod-modal-image" />` : ''}
+            <div class="mod-modal-header-text">
+              <h2>${mod.title}</h2>
+              <p class="mod-modal-subtitle">${mod.description}</p>
+              <div class="mod-modal-meta">
+                ${tags ? `<div class="mod-modal-tags">${tags}</div>` : ''}
+                <div class="mod-modal-info">
+                  ${author ? `<span><strong>Author:</strong> ${author}</span>` : ''}
+                  ${date ? `<span><strong>Updated:</strong> ${date}</span>` : ''}
+                  ${downloads ? `<span><strong>Downloads:</strong> ${downloads}</span>` : ''}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mod-modal-description">
+            ${mod.fullDescription}
+          </div>
+        `;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      detailButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const modId = btn.getAttribute('data-mod-id');
+          openModal(modId);
+        });
+      });
+
+      modalClose.addEventListener('click', closeModal);
+      modalOverlay.addEventListener('click', closeModal);
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+          closeModal();
+        }
+      });
+    </script>
+  
+  
+
+</body></html>
