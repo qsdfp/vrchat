@@ -1,0 +1,27 @@
+{
+  "name": "VRChat Plugin Studio",
+  "short_name": "VRCPlugin",
+  "description": "Download VRChat Plugin Studio to create and customize plugins for VRChat avatars and worlds.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f23",
+  "theme_color": "#1a1a2e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "images/my-new-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/my-new-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["VR", "Development", "Software"],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
